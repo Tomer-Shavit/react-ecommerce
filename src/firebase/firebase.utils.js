@@ -25,7 +25,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   //checks is there is a user in the ref  and save the user in the database if there is no user there
   //The function returns the user ref in the database
   if(!userAuth) return;
-  
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   const snapShot = await userRef.get();
 

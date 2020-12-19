@@ -23,6 +23,10 @@ $main-color: black;
         border-bottom: 1px solid $sub-color;
         margin: 25px 0;
 
+        &.match{
+            border-bottom: 2px solid rgb(63, 196, 63);
+        }
+
         &:focus{
             outline: none;
         }
