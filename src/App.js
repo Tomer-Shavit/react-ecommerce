@@ -37,26 +37,31 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('The current user is: ' + this.props.currentUser);
     return (
       <div>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/sign-in" render={()=>(this.props.currentUser ? (<Redirect to='/'/>) : (<SignUpAndSignIn/>))} />
+          <Route
+            exact
+            path="/sign-in"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <SignUpAndSignIn />
+            }
+          />
         </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user))
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
