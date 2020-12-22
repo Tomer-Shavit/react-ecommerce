@@ -10,7 +10,7 @@ import CartIcon from "../cart-icon/cart-icon.component";
 
 import "./header.styles.scss";
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, itemCount }) => (
   <div className="header">
     <Link to="/" className="logo">
       <Logo />
