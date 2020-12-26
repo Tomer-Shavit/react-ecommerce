@@ -1,0 +1,21 @@
+.collection-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 50px;
+
+  .title {
+    font-size: 2rem;
+    margin: 32px auto;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 24px;
+
+    &.collection-item {
+      margin-bottom: 100px;
+    }
+  }
+}
