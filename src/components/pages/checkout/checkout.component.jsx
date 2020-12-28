@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
+import CustomButton from "../../custom-button/custom-button.component";
 import { selectCartItems } from "../../../redux/cart/cart.selectors";
 import { selectCartTotal } from "../../../redux/cart/cart.selectors";
 import CheckoutItem from "../../checkout-item/checkout-item.component";
-
-
 
 import "./checkout.styles.scss";
 
@@ -33,6 +31,7 @@ const Checkout = ({ cartItems, total }) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem}></CheckoutItem>
     ))}
     <span className="total">{total ? `$${total}` : null}</span>
+    <CustomButton>BUY NOW</CustomButton>
   </div>
 );
 
