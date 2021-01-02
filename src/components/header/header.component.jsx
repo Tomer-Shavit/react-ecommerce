@@ -17,8 +17,6 @@ import {
 import { CartDropdownContainer } from "../cart-dropdown/cart-dropdown.container";
 import CartIcon from "../cart-icon/cart-icon.component";
 
-import "./header.styles.scss";
-
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
     <LogoContainer to="/">

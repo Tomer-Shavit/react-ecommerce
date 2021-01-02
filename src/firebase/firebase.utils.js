@@ -18,9 +18,6 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   //checks is there is a user in the ref  and save the user in the database if there is no user there
   //The function returns the user ref in the database
@@ -79,5 +76,8 @@ export const addCollectionsAndDocuments = async (
   return await batch.commit();
 };
 
-export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () =>
+  firebase.auth().signInWithPopup(googleProvider);
 export default firebase;

@@ -10,36 +10,9 @@ import ShopPage from "./components/pages/shop/shop.component";
 import Checkout from "./components/pages/checkout/checkout.component";
 import SignUpAndSignIn from "./components/pages/sign-up-and-sign-in/sign-up-and-sign-in.component";
 import Header from "./components/header/header.component";
-import { selectCollections } from "./redux/shop/shop.selectors";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
-
-  componentDidMount = () => {
-    // When the app start we check if there is an authenticated user, if so, we store the user data from the database in the state
-    const { setCurrentUser } = this.props;
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      } else {
-        setCurrentUser(userAuth);
-      }
-    });
-  };
-
-  componentWillUnmount = () => {
-    this.unsubscribeFromAuth();
-  };
 
   render() {
     return (
@@ -64,11 +37,6 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectCollections,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
