@@ -3,9 +3,9 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
     body {
   font-family: 'Open Sans Condensed';
-  padding: 20px 40px;
+  padding: 0 40px;
 
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 1100px){
     padding: 10px;  
     }
 }
