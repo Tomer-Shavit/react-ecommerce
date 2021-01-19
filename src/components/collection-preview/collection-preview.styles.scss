@@ -1,14 +1,24 @@
-.collection-preview{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
+.collection-preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 
-    .title{
-        font-size: 1.6rem;
-        margin-bottom: 25px;
+  @media screen and (max-width: 800px) {
+    align-items: center;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  .preview {
+    display: flex;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 800px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
-    .preview{
-        display: flex;
-        justify-content: space-between;
-    }
+  }
 }

@@ -48,4 +48,8 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+  }
 `;

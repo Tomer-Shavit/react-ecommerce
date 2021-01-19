@@ -41,6 +41,15 @@ const ItemButton = css`
     color: white;
     opacity: 0.85;
   }
+
+  @media screen and (max-width: 800px) {
+    display: block;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
 `;
 
 const GoogleButton = css`
