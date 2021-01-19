@@ -21,10 +21,13 @@ const SignUpAndSignIn = lazy(() =>
   import("./components/pages/sign-up-and-sign-in/sign-up-and-sign-in.component")
 );
 
-const App = ({ checkUserSession, currentUser }) => {
-  useEffect(() => {
+class App extends React.Component {
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    const { checkUserSession } = this.props;
     checkUserSession();
-  }, [checkUserSession]);
+  }
 
   render() {
     return (
